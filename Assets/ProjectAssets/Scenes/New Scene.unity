@@ -4129,7 +4129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabState: {fileID: 1711516347}
-  _syntheticHand: {fileID: 0}
+  _syntheticHand: {fileID: 1050085882}
 --- !u!1 &149863946
 GameObject:
   m_ObjectHideFlags: 0
@@ -9199,7 +9199,7 @@ MonoBehaviour:
   virtualGreenScreenBottomY: -10
   virtualGreenScreenApplyDepthCulling: 0
   virtualGreenScreenDepthTolerance: 0.2
-  mrcActivationMode: 0
+  mrcActivationMode: 1
   launchSimultaneousHandsControllersOnStartup: 0
   isInsightPassthroughEnabled: 0
   shouldBoundaryVisibilityBeSuppressed: 0
@@ -44902,8 +44902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ovrCameraRig: {fileID: 282155320}
-  _leftHand: {fileID: 0}
-  _rightHand: {fileID: 0}
+  _leftHand: {fileID: 588822562}
+  _rightHand: {fileID: 1738446458}
   _requireOvrHands: 1
 --- !u!114 &1405944536
 MonoBehaviour:
@@ -48536,7 +48536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabState: {fileID: 1680497501}
-  _syntheticHand: {fileID: 0}
+  _syntheticHand: {fileID: 1050085882}
 --- !u!1 &1523270252
 GameObject:
   m_ObjectHideFlags: 0
@@ -60152,7 +60152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabState: {fileID: 1640240174}
-  _syntheticHand: {fileID: 0}
+  _syntheticHand: {fileID: 1050085882}
 --- !u!1 &1850409586
 GameObject:
   m_ObjectHideFlags: 0
@@ -70573,7 +70573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabState: {fileID: 1386883013}
-  _syntheticHand: {fileID: 0}
+  _syntheticHand: {fileID: 1050085882}
 --- !u!1 &2142753280
 GameObject:
   m_ObjectHideFlags: 0
