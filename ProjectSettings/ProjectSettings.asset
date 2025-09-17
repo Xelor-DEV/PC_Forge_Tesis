@@ -141,7 +141,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 0cb1c49da4a85c34eaa24ec9e4f38f8e, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -879,8 +880,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: PC_Forge
-  metroPackageVersion: 
+  metroPackageName: PCForge
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -888,7 +889,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: PC_Forge
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: 'PC Forge: Computer Assembly Simulator'
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

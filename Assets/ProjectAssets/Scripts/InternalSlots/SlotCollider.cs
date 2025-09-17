@@ -16,8 +16,8 @@ public class SlotCollider : MonoBehaviour
     [Header("Base Slot Configuration")]
     [SerializeField] protected string requiredTag;
     [SerializeField] protected InternalSlot assemblySystem;
-    [SerializeField] protected AlignmentDirection alignmentDirection = AlignmentDirection.Forward;
-    [SerializeField] protected float alignmentThreshold = 0.9f;
+    [SerializeField] public AlignmentDirection alignmentDirection = AlignmentDirection.Forward;
+    [SerializeField] public float alignmentThreshold = 0.9f;
 
     protected BoxCollider boxCollider;
     protected HashSet<Collider> validCollisions = new HashSet<Collider>();

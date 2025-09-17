@@ -6,15 +6,15 @@ using UnityEngine.Events;
 public class InternalHardware : MonoBehaviour
 {
     [Header("Components to Deactivate")]
-    [SerializeField] private Rigidbody _compRigidbody;
-    [SerializeField] private BoxCollider _compBoxCollider;
-    [SerializeField] private Grabbable _compGrabbable;
-    [SerializeField] private GrabInteractable _grabInteractable;
-    [SerializeField] private HandGrabInteractable _handGrabInteractable;
+    [SerializeField] public Rigidbody _compRigidbody;
+    [SerializeField] public BoxCollider _compBoxCollider;
+    [SerializeField] public Grabbable _compGrabbable;
+    [SerializeField] public GrabInteractable _grabInteractable;
+    [SerializeField] public HandGrabInteractable _handGrabInteractable;
 
     [Header("Attachment Settings")]
-    [SerializeField] private Vector3 correctPosition; // Posici�n relativa a la motherboard
-    [SerializeField] private Vector3 correctRotation; // Rotaci�n en �ngulos de Euler
+    [SerializeField] public Vector3 correctPosition; // Posici�n relativa a la motherboard
+    [SerializeField] public Vector3 correctRotation; // Rotaci�n en �ngulos de Euler
 
     [Header("Events")]
     public UnityEvent OnComponentInstalled; // El evento p�blico

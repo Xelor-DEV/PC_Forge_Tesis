@@ -7,17 +7,17 @@ using System.Collections;
 public class LatchController : MonoBehaviour
 {
     public enum RotationSpace { Local, World }
-    public enum RotationAxis { X, Y, Z } // Nuevo enum para selección de eje
+    public enum RotationAxis { X, Y, Z }
 
     [Header("Latch Configuration")]
     [SerializeField] RotationSpace rotationSpace = RotationSpace.Local;
-    [SerializeField] RotationAxis rotationAxis = RotationAxis.Z; // Nuevo campo para eje
+    [SerializeField] RotationAxis rotationAxis = RotationAxis.Z;
     [SerializeField] float targetAngle = 90f;
     [SerializeField] float closedAngle = 0f;
     [SerializeField] float angleThreshold = 1f;
 
     [Header("Closing Animation")]
-    [SerializeField] float closeDuration = 0.5f;
+    [SerializeField] public float closeDuration = 0.5f;
     [SerializeField] AnimationCurve closeCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     [Header("Events")]
@@ -25,10 +25,10 @@ public class LatchController : MonoBehaviour
     public UnityEvent OnLatchClosed;
 
     [Header("Components to Lock")]
-    [SerializeField] private Grabbable _grabbable;
-    [SerializeField] private GrabInteractable _grabInteractable;
-    [SerializeField] private HandGrabInteractable _handGrabInteractable;
-    [SerializeField] private OneGrabRotateTransformer _oneGrabRotateTransformer;
+    [SerializeField] public Grabbable _grabbable;
+    [SerializeField] public GrabInteractable _grabInteractable;
+    [SerializeField] public HandGrabInteractable _handGrabInteractable;
+    [SerializeField] public OneGrabRotateTransformer _oneGrabRotateTransformer;
 
     private float currentAngle;
     private bool isLocked = false;
@@ -37,6 +37,13 @@ public class LatchController : MonoBehaviour
 
     public bool IsLatchOpen => isOpen;
     public bool IsLocked => isLocked;
+
+    void Awake()
+    {
+        // Initialize UnityEvents if they're null
+        OnLatchOpened ??= new UnityEvent();
+        OnLatchClosed ??= new UnityEvent();
+    }
 
     void Update()
     {
@@ -48,12 +55,9 @@ public class LatchController : MonoBehaviour
 
     private void UpdateRotation()
     {
-        // Obtener ángulo actual según eje seleccionado
         currentAngle = rotationSpace == RotationSpace.Local ?
             GetLocalRotationAxis() :
             GetWorldRotationAxis();
-
-        // Eliminada la lógica de ajuste automático al mínimo/máximo
     }
 
     private float GetLocalRotationAxis()
@@ -118,7 +122,7 @@ public class LatchController : MonoBehaviour
         }
 
         SetRotation(targetClosedAngle);
-        OnLatchClosed.Invoke();
+        OnLatchClosed?.Invoke(); // Added null check
         closeCoroutine = null;
     }
 
@@ -135,7 +139,6 @@ public class LatchController : MonoBehaviour
             transform.localEulerAngles :
             transform.eulerAngles;
 
-        // Aplicar al eje seleccionado
         newRotation[(int)rotationAxis] = angle;
 
         if (rotationSpace == RotationSpace.Local)
