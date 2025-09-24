@@ -14,7 +14,14 @@ public class InfoPanelRay : MonoBehaviour
     [SerializeField] TextMeshProUGUI _componentFeatures;
 
     private AssemblyComponent _lastComponent;
+    private LineRenderer _lr;
 
+    public Transform origin;
+
+    private void Start()
+    {
+        _lr = GetComponent<LineRenderer>();
+    }
     void Update()
     {
         if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
@@ -25,18 +32,24 @@ public class InfoPanelRay : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit hit;
+        _lr.SetPosition(0, transform.position);
+        _lr.SetPosition(1, (origin.position + (transform.TransformDirection(Vector3.forward) * _rayDistance)));
 
+        RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, _rayDistance, _layers))
         {
+            
             if (hit.transform.TryGetComponent<AssemblyComponent>(out AssemblyComponent component))
             {
+
                 if (_lastComponent != null && _lastComponent == component) return;
 
                 ApplyUIInfo(component.Data);
                 _lastComponent = component;
             }
+            
         }
+
     }
     public void SwitchPanelActive()
     {
